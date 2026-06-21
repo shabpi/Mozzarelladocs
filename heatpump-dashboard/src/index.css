@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lb-bg: #191919;
+  --color-lb-bg-elevated: #1e4268;
+  --color-lb-surface: #1e4268;
+  --color-lb-accent: #ff6148;
+  --color-lb-accent-blue: #0b75b7;
+  --color-lb-accent-navy: #19567b;
+  --color-lb-text: #ffffff;
+  --color-lb-text-muted: #cacaca;
+  --color-lb-heading: #ffffff;
+}
+
+:root {
+  --bg: #191919;
+  --bg-elevated: #1e4268;
+  --surface: #1e4268;
+  --surface-border: rgba(255, 255, 255, 0.15);
+  --text: #ffffff;
+  --text-muted: #cacaca;
+  --text-h: #ffffff;
+  --accent: #ff6148;
+  --accent-blue: #0b75b7;
+  --accent-navy: #19567b;
+  --border: rgba(255, 255, 255, 0.15);
+  --shadow-card: 0 0 1rem rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 30px rgba(255, 97, 72, 0.15);
+
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
+
+  font: 16px/1.5 var(--sans);
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100svh;
+  text-align: left;
+}
+
+.gradient-heading {
+  background-image: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.orion-hologram {
+  position: relative;
+  width: 5.5rem;
+  height: 4.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orion-hologram--header {
+  width: 3.25rem;
+  height: 2.75rem;
+}
+
+.orion-hologram--loading {
+  width: 20rem;
+  height: 17rem;
+}
+
+.orion-hologram--loading .orion-hologram__gif {
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.5));
+}
+
+.orion-hologram__gif {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.45));
+}
