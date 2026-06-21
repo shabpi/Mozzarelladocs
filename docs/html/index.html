@@ -344,9 +344,6 @@ too — removing the &quot;cools forever&quot; artefact that a fixed slope would
 <h3>The general loop<a class="headerlink" href="#the-general-loop" title="Link to this heading">¶</a></h3>
 <p>The controller is a receding-horizon loop run every <span class="math notranslate nohighlight">\(\Delta t = 15\)</span>
 minutes. Each step:</p>
-<figure class="align-center">
-<img alt="control loop" src="_images/control_loop.png" />
-</figure>
 <ol class="arabic simple">
 <li><p><strong>Sense</strong> the room temperature <span class="math notranslate nohighlight">\(T_k\)</span> (average of the four devices).</p></li>
 <li><p><strong>Update</strong> the EWMA for the mode just applied:
@@ -365,16 +362,6 @@ coasting would leave the band within the lead horizon (or an event is within
 stay frozen at their physical seeds and the loop reduces to the constant
 <span class="math notranslate nohighlight">\((G, L)\)</span> predictor.</p>
 </section>
-</section>
-<section id="the-predict-sandbox">
-<h2>The <code class="docutils literal notranslate"><span class="pre">predict/</span></code> sandbox<a class="headerlink" href="#the-predict-sandbox" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">predict/</span></code> is the research-and-modeling sandbox for the forecasting side of the
-controller. It collects several model families — linear regressors,
-gradient-boosted trees (XGBoost) and the TimesFM time-series foundation model —
-for forecasting room and device return temperatures and for profiling each
-device's power draw, fit separately per device and per operating mode. It is a
-live model rather than a one-off offline fit: it keeps learning as it goes,
-refining its temperature and power-draw estimates as new readings arrive.</p>
 </section>
 </section>
 
@@ -422,7 +409,6 @@ refining its temperature and power-draw estimates as new readings arrive.</p>
 <li><a class="reference internal" href="#the-general-loop">The general loop</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#the-predict-sandbox">The <code class="docutils literal notranslate"><span class="pre">predict/</span></code> sandbox</a></li>
 </ul>
 </li>
 </ul>

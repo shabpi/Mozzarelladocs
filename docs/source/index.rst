@@ -136,6 +136,11 @@ The general loop
 The controller is a receding-horizon loop run every :math:`\Delta t = 15`
 minutes. Each step:
 
+.. figure:: control_loop.png
+   :align: center
+   :alt: control loop
+
+
 #. **Sense** the room temperature :math:`T_k` (average of the four devices).
 #. **Update** the EWMA for the mode just applied:
    :math:`r_{\sigma_{k-1}} \leftarrow \alpha\,\rho_k + (1-\alpha)\,r_{\sigma_{k-1}}`.
@@ -152,3 +157,16 @@ minutes. Each step:
 The fixed-coefficient model is the special case :math:`\alpha\to 0`: the rates
 stay frozen at their physical seeds and the loop reduces to the constant
 :math:`(G, L)` predictor.
+
+
+
+The ``predict/`` sandbox
+========================================
+ 
+``predict/`` is the research-and-modeling sandbox for the forecasting side of the
+controller. It collects several model families — linear regressors,
+gradient-boosted trees (XGBoost) and the TimesFM time-series foundation model —
+for forecasting room and device return temperatures and for profiling each
+device's power draw, fit separately per device and per operating mode. It is a
+live model rather than a one-off offline fit: it keeps learning as it goes,
+refining its temperature and power-draw estimates as new readings arrive.
